@@ -1,0 +1,71 @@
+\ProvidesFile{verbose-ibid-orig.bbx}
+\RequireBibliographyStyle{verbose-ibid}
+
+\NewBibliographyString{origpub}
+
+\DefineBibliographyStrings{ngerman}{%
+  origpub = {Erstveröffentlichung}
+}
+
+\DeclareFieldFormat{origtitle}{\emph{#1}}
+\DeclareFieldFormat[incollection,inbook,article]{origtitle}{\enquote{#1}}
+
+\newbibmacro*{origpublication}{%
+  \iffieldundef{origyear}%
+    {}
+    {\printtext[parens]{%
+      \iffieldundef{origtitle}%
+        {\bibstring{origpub}%
+         \setunit*{\addcolon\space}}
+        {\printfield{origtitle}%
+         \setunit*{\addcomma\space}}%
+      \printlist{origlocation}%
+      \iflistundef{origpublisher}%
+        {\setunit*{\addcomma\space}}%
+        {\setunit*{\addcolon\space}}%
+      \printlist{origpublisher}%
+      \setunit*{\addcomma\space}%
+      \printorigdate}}
+    \newunit}
+
+\renewbibmacro*{publisher+location+date}{%
+  \usebibmacro{origpublication}%
+  \printlist{location}%
+  \iflistundef{publisher}
+    {\setunit*{\addcomma\space}}
+    {\setunit*{\addcolon\space}}
+  \printlist{publisher}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+
+\newbibmacro*{institution+location+date}{%
+  \usebibmacro{origpublication}%
+  \printlist{location}%
+  \iflistundef{institution}
+    {\setunit*{\addcomma\space}}
+    {\setunit*{\addcolon\space}}%
+  \printlist{institution}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+
+\newbibmacro*{organization+location+date}{%
+  \usebibmacro{origpublication}%
+  \printlist{location}%
+  \iflistundef{organization}
+    {\setunit*{\addcomma\space}}
+    {\setunit*{\addcolon\space}}%
+  \printlist{organization}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+
+\renewbibmacro*{location+date}{%
+  \usebibmacro{origpublication}%
+  \printlist{location}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+
+\endinput
