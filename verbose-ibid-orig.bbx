@@ -39,7 +39,7 @@
   \usebibmacro{date}%
   \newunit}
 
-\newbibmacro*{institution+location+date}{%
+\renewbibmacro*{institution+location+date}{%
   \usebibmacro{origpublication}%
   \printlist{location}%
   \iflistundef{institution}
@@ -50,7 +50,7 @@
   \usebibmacro{date}%
   \newunit}
 
-\newbibmacro*{organization+location+date}{%
+\renewbibmacro*{organization+location+date}{%
   \usebibmacro{origpublication}%
   \printlist{location}%
   \iflistundef{organization}
