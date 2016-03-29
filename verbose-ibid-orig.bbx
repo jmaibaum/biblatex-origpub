@@ -13,7 +13,7 @@
 \newbibmacro*{origpublication}{%
   \iffieldundef{origyear}%
     {}
-    {\printtext[parens]{%
+    {\printtext[brackets]{%
       \iffieldundef{origtitle}%
         {\bibstring{origpub}%
          \setunit*{\addcolon\space}}
@@ -28,44 +28,48 @@
       \printorigdate}}
     \newunit}
 
-\renewbibmacro*{publisher+location+date}{%
+\renewbibmacro*{finentry}{%
   \usebibmacro{origpublication}%
-  \printlist{location}%
-  \iflistundef{publisher}
-    {\setunit*{\addcomma\space}}
-    {\setunit*{\addcolon\space}}
-  \printlist{publisher}%
-  \setunit*{\addcomma\space}%
-  \usebibmacro{date}%
-  \newunit}
+  \finentry}
 
-\renewbibmacro*{institution+location+date}{%
-  \usebibmacro{origpublication}%
-  \printlist{location}%
-  \iflistundef{institution}
-    {\setunit*{\addcomma\space}}
-    {\setunit*{\addcolon\space}}%
-  \printlist{institution}%
-  \setunit*{\addcomma\space}%
-  \usebibmacro{date}%
-  \newunit}
+%\renewbibmacro*{publisher+location+date}{%
+%  \usebibmacro{origpublication}%
+%  \printlist{location}%
+%  \iflistundef{publisher}
+%    {\setunit*{\addcomma\space}}
+%    {\setunit*{\addcolon\space}}
+%  \printlist{publisher}%
+%  \setunit*{\addcomma\space}%
+%  \usebibmacro{date}%
+%  \newunit}
 
-\renewbibmacro*{organization+location+date}{%
-  \usebibmacro{origpublication}%
-  \printlist{location}%
-  \iflistundef{organization}
-    {\setunit*{\addcomma\space}}
-    {\setunit*{\addcolon\space}}%
-  \printlist{organization}%
-  \setunit*{\addcomma\space}%
-  \usebibmacro{date}%
-  \newunit}
+%\renewbibmacro*{institution+location+date}{%
+%  \usebibmacro{origpublication}%
+%  \printlist{location}%
+%  \iflistundef{institution}
+%    {\setunit*{\addcomma\space}}
+%    {\setunit*{\addcolon\space}}%
+%  \printlist{institution}%
+%  \setunit*{\addcomma\space}%
+%  \usebibmacro{date}%
+%  \newunit}
 
-\renewbibmacro*{location+date}{%
-  \usebibmacro{origpublication}%
-  \printlist{location}%
-  \setunit*{\addcomma\space}%
-  \usebibmacro{date}%
-  \newunit}
+%\renewbibmacro*{organization+location+date}{%
+%  \usebibmacro{origpublication}%
+%  \printlist{location}%
+%  \iflistundef{organization}
+%    {\setunit*{\addcomma\space}}
+%    {\setunit*{\addcolon\space}}%
+%  \printlist{organization}%
+%  \setunit*{\addcomma\space}%
+%  \usebibmacro{date}%
+%  \newunit}
+
+%\renewbibmacro*{location+date}{%
+%  \usebibmacro{origpublication}%
+%  \printlist{location}%
+%  \setunit*{\addcomma\space}%
+%  \usebibmacro{date}%
+%  \newunit}
 
 \endinput
