@@ -8,7 +8,7 @@
 }
 
 \DeclareFieldFormat{origtitle}{\emph{#1}}
-\DeclareFieldFormat[incollection,inbook,article]{origtitle}{\enquote{#1}}
+\DeclareFieldFormat[article,inbook,incollection]{origtitle}{\enquote{#1}}
 
 \newbibmacro*{origpublication}{%
   \iffieldundef{origyear}%
